@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import ProgressBarWithSteps from './ProgressBarWithSteps';
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import Stepper from './Stepper';
 
 const App = () => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 5; // You can adjust the total number of steps here
-
-  const handleNextStep = () => {
-    if (currentStep < totalSteps) {
-      setCurrentStep((prevStep) => prevStep + 1);
-    }
-  };
+  const steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4']; // Replace with your actual step names
 
   return (
     <View style={styles.container}>
-      <ProgressBarWithSteps steps={totalSteps} currentStep={currentStep} />
-      <Text style={styles.stepText}>Step {currentStep} of {totalSteps}</Text>
-      <Button title="Next Step" onPress={handleNextStep} />
+      <Stepper steps={steps} />
+      {/* Your other app content goes here */}
+      <Text>Shoing </Text>
     </View>
   );
 };
@@ -26,10 +19,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  stepText: {
-    marginTop: 10,
-    fontSize: 18,
+    padding: 20,
   },
 });
 
