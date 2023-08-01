@@ -1,12 +1,17 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Step from './Step';
 
-const ProgressBar = ({ steps, activeIndex }) => {
+const ProgressBar = ({ steps, currentStep }) => {
     return (
         <View style={styles.progressBar}>
-            {steps.map((step, index) => (
-                <Step key={index} label={step} isActive={index === activeIndex} />
+            {steps.map((_, index) => (
+                <View
+                    key={index}
+                    style={[
+                        styles.step,
+                        { width: 100 / steps.length + '%', backgroundColor: index <= currentStep ? '#007AFF' : '#ccc' },
+                    ]}
+                />
             ))}
         </View>
     );
@@ -15,9 +20,17 @@ const ProgressBar = ({ steps, activeIndex }) => {
 const styles = StyleSheet.create({
     progressBar: {
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        marginVertical: 16,
+        height: 10,
+        backgroundColor: '#f0f0f0',
+        borderRadius: 5,
+        marginVertical: 10,
+    },
+    step: {
+        flex: 1,
+        height: '100%',
+        borderRadius: 5,
     },
 });
 
