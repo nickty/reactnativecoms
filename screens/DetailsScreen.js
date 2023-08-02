@@ -1,7 +1,8 @@
 // DetailsScreen.js
 import React from 'react';
-import { View, Text, Button, FlatList } from 'react-native';
+import { View, Text, Button, FlatList, ScrollView } from 'react-native';
 import ProductCard from '../components/ProductCard';
+import ProductCard2 from '../components/ProductCard2';
 
 const data = [
     {
@@ -36,6 +37,23 @@ const data = [
 ];
 
 const DetailsScreen = ({ navigation }) => {
+    const products = [
+        {
+            id: '1',
+            title: 'Product 1',
+            description: 'This is the description for Product 1.',
+            price: 19.99,
+            imageUrl: 'https://via.placeholder.com/150',
+        },
+        {
+            id: '2',
+            title: 'Product 2',
+            description: 'This is the description for Product 2.',
+            price: 24.99,
+            imageUrl: 'https://via.placeholder.com/150',
+        },
+        // Add more products as needed
+    ];
     return (
         <View>
             <Text>Details Screen</Text>
@@ -43,11 +61,22 @@ const DetailsScreen = ({ navigation }) => {
                 title="Go back"
                 onPress={() => navigation.goBack()}
             />
-            <FlatList
+            {/* <FlatList
                 data={data}
                 renderItem={({ item }) => <ProductCard product={item} />}
                 keyExtractor={(item) => item.id}
-            />
+            /> */}
+            <ScrollView>
+                {products.map((product) => (
+                    <ProductCard2
+                        key={product.id}
+                        title={product.title}
+                        description={product.description}
+                        price={product.price}
+                        imageUrl={product.imageUrl}
+                    />
+                ))}
+            </ScrollView>
         </View>
     );
 };
