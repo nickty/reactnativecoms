@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import ProgressBar from '../components/ProgressBar'
+import TextSlider from '../components/TextSlider';
 
 const SignUpScreen = ({ navigation }) => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -33,6 +34,7 @@ const SignUpScreen = ({ navigation }) => {
                     onPress={() => navigation.navigate('Details')}
                 />
             </View>
+            <TextSlider />
         </View>
     );
 };
