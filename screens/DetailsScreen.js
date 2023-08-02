@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, Button, FlatList, ScrollView } from 'react-native';
 import ProductCard from '../components/ProductCard';
 import ProductCard2 from '../components/ProductCard2';
+import ProductCard3 from '../components/ProductCard3';
 
 const data = [
     {
@@ -52,6 +53,20 @@ const DetailsScreen = ({ navigation }) => {
             price: 24.99,
             imageUrl: 'https://via.placeholder.com/150',
         },
+        {
+            id: '3',
+            title: 'Product 2',
+            description: 'This is the description for Product 2.',
+            price: 24.99,
+            imageUrl: 'https://via.placeholder.com/150',
+        },
+        {
+            id: '4',
+            title: 'Product 2',
+            description: 'This is the description for Product 2.',
+            price: 24.99,
+            imageUrl: 'https://via.placeholder.com/150',
+        },
         // Add more products as needed
     ];
     return (
@@ -66,7 +81,7 @@ const DetailsScreen = ({ navigation }) => {
                 renderItem={({ item }) => <ProductCard product={item} />}
                 keyExtractor={(item) => item.id}
             /> */}
-            <ScrollView>
+            {/* <ScrollView>
                 {products.map((product) => (
                     <ProductCard2
                         key={product.id}
@@ -76,7 +91,20 @@ const DetailsScreen = ({ navigation }) => {
                         imageUrl={product.imageUrl}
                     />
                 ))}
-            </ScrollView>
+            </ScrollView> */}
+            <FlatList
+                data={products}
+                numColumns={2}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item }) => (
+                    <ProductCard3
+                        title={item.title}
+                        description={item.description}
+                        price={item.price}
+                        imageUrl={item.imageUrl}
+                    />
+                )}
+            />
         </View>
     );
 };
