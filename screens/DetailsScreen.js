@@ -1,9 +1,10 @@
 // DetailsScreen.js
 import React from 'react';
-import { View, Text, Button, FlatList, ScrollView } from 'react-native';
+import { View, Text, Button, FlatList, ScrollView, SafeAreaView } from 'react-native';
 import ProductCard from '../components/ProductCard';
 import ProductCard2 from '../components/ProductCard2';
 import ProductCard3 from '../components/ProductCard3';
+import ProductList from '../components/ProductList';
 
 const data = [
     {
@@ -105,6 +106,9 @@ const DetailsScreen = ({ navigation }) => {
                     />
                 )}
             />
+            <SafeAreaView>
+                <ProductList />
+            </SafeAreaView>
         </View>
     );
 };
