@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import ProgressBar from '../components/ProgressBar'
 import TextSlider from '../components/TextSlider';
+import ClickableImageBox from '../components/ClickableImageBox';
 
 const SignUpScreen = ({ navigation }) => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -15,6 +16,10 @@ const SignUpScreen = ({ navigation }) => {
     const handlePreviousStep = () => {
         setCurrentStep((prevStep) => Math.max(prevStep - 1, 0));
     };
+
+    const handleBoxPress = () => {
+    // Handle the press event
+  };
 
     return (
         <View style={styles.container}>
@@ -39,6 +44,19 @@ const SignUpScreen = ({ navigation }) => {
                 />
             </View>
             <TextSlider />
+            <View style={styles.container}>
+                <View style={{ flexDirection: 'row'}}>
+<ClickableImageBox
+        onPress={handleBoxPress}
+        imageSource={require('./football.png')}
+      />
+      <ClickableImageBox
+        onPress={handleBoxPress}
+        imageSource={require('./football.png')}
+      />
+                </View>
+      
+    </View>
         </View>
     );
 };
