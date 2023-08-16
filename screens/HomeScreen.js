@@ -33,6 +33,10 @@ const SignUpScreen = ({ navigation }) => {
                     title="Go to Details"
                     onPress={() => navigation.navigate('Details')}
                 />
+                <Button
+                    title="Personal Info"
+                    onPress={() => navigation.navigate('PersonalInfo')}
+                />
             </View>
             <TextSlider />
         </View>
