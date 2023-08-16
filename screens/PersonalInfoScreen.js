@@ -16,6 +16,7 @@ const PersonalInfoScreen = ({ navigation }) => {
       <StepProgressIndicator totalSteps={3} currentStep={step} />
       {/* Form fields and content for personal information */}
       <Button title="Next" onPress={onNextStep} />
+      <Button title="account setup" onPress={() => navigation.navigate('AccountSetupScreen')} />
     </View>
   );
 };

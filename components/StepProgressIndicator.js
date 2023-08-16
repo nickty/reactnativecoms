@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+const width = Dimensions.get('window').width;
 
 const StepProgressIndicator = ({ totalSteps, currentStep }) => {
   const renderSteps = () => {
@@ -11,10 +13,10 @@ const StepProgressIndicator = ({ totalSteps, currentStep }) => {
           <View
             style={[
               styles.step,
-              i === currentStep ? styles.activeStep : styles.inactiveStep,
+              i < currentStep ? styles.completedStep : i === currentStep ? styles.activeStep : styles.inactiveStep,
             ]}
           >
-            {i === currentStep ? (
+            {i < currentStep ? (
               <Icon name="check" size={20} color="white" />
             ) : (
               <Text style={styles.stepNumber}>{i}</Text>
@@ -34,11 +36,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
+    width: width,
     alignItems: 'center',
     marginVertical: 20,
   },
   stepContainer: {
     flexDirection: 'row',
+    width: 60,
     alignItems: 'center',
   },
   step: {
@@ -54,14 +58,18 @@ const styles = StyleSheet.create({
   inactiveStep: {
     backgroundColor: 'lightgray', // Customize color for inactive step
   },
+  completedStep: {
+    backgroundColor: 'green', // Customize color for completed step
+  },
   stepNumber: {
     color: 'white',
     fontSize: 16,
   },
   line: {
     flex: 1,
-    height: 1,
-    backgroundColor: 'gray', // Customize color for the line
+    height: 2, // Height of the line
+    backgroundColor: 'gray', // Default color for the line
+    marginHorizontal: 5, // Adjust this for spacing between line and step
   },
 });
 
