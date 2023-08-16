@@ -41,15 +41,18 @@ const StepProgressIndicator = ({ totalSteps, currentStep }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     width: width,
     alignItems: 'center',
     marginVertical: 20,
+    marginHorizontal: 20
   },
   stepContainer: {
+    flex: 1,
     flexDirection: 'row',
-    width: 60,
+    // width: 100,
     alignItems: 'center',
   },
   step: {
