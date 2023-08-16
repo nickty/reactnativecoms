@@ -13,7 +13,7 @@ const AccountSetupScreen = ({ navigation }) => {
 
   return (
     <View>
-      <StepProgressIndicator totalSteps={5} currentStep={step} />
+      <StepProgressIndicator totalSteps={3} currentStep={step} />
       {/* Form fields and content for personal information */}
       <Button title="Next" onPress={onNextStep} />
     </View>

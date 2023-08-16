@@ -22,7 +22,14 @@ const StepProgressIndicator = ({ totalSteps, currentStep }) => {
               <Text style={styles.stepNumber}>{i}</Text>
             )}
           </View>
-          {i !== totalSteps && <View style={styles.line} />}
+          {i !== totalSteps && (
+            <View
+              style={[
+                styles.line,
+                i < currentStep ? styles.activeLine : styles.inactiveLine,
+              ]}
+            />
+          )}
         </View>
       );
     }
@@ -70,6 +77,12 @@ const styles = StyleSheet.create({
     height: 2, // Height of the line
     backgroundColor: 'gray', // Default color for the line
     marginHorizontal: 5, // Adjust this for spacing between line and step
+  },
+  activeLine: {
+    backgroundColor: 'blue', // Customize color for active line
+  },
+  inactiveLine: {
+    backgroundColor: 'lightgray', // Customize color for inactive line
   },
 });
 
